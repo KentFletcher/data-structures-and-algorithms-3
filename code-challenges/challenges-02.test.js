@@ -11,7 +11,14 @@ Write a function named raisedToTheThird that takes in an array of numbers and re
 const raisedToTheThird = (arr) => {
   // Solution code here...
   let newArr = [];
-  arr.forEach(ele => newArr.push(Math.pow(ele, 3)));
+
+  //completed using a forEach() method
+  // arr.forEach(ele => newArr.push(Math.pow(ele, 3)));
+
+  // completed using a for/of loop
+  for (let num of arr) {
+    newArr.push(Math.pow(num, 3))
+  }
   return newArr;
 }
 
