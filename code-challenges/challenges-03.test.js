@@ -174,7 +174,32 @@ const meetings = [
 
 const sortMeetingsByDay = (arr) => {
   // Solution code here...
+  return arr.sort((a, b) => numDays(a.dayOfWeek) - numDays(b.dayOfWeek));
 };
+
+const numDays = (day) => {
+  let value = 0;
+  switch (day) {
+    case 'Monday':
+      value = 1;
+      break;
+    case 'Tuesday':
+      value = 2;
+      break;
+    case 'Wednesday':
+      value = 3;
+      break;
+    case 'Thursday':
+      value = 4;
+      break;
+    case 'Friday':
+      value = 5;
+      break;
+    default:
+      value = -1;
+  }
+  return value
+}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 11 - Stretch Goal
@@ -323,7 +348,7 @@ describe('Testing challenge 9', () => {
   });
 });
 
-xdescribe('Testing challenge 10', () => {
+describe('Testing challenge 10', () => {
   test('It should sort meetings by the day on which they happen', () => {
     const sortedMeetings = sortMeetingsByDay(meetings);
     expect(sortedMeetings.slice(0, 2)).toEqual(expect.arrayContaining([new Meeting('Monday', '0900', '0945'), new Meeting('Monday', '0900', '1000')]));
