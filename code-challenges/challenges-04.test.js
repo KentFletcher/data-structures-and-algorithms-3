@@ -69,11 +69,16 @@ const citiesAtoJ = (arr) => {
   // Solution code here...
   let newArr = [];
   let rg = /(^[A-J])\w+/g;
-  arr.forEach(city => {
+  // arr.forEach(city => {
+  //   if (city.match(rg)) {
+  //     newArr.push(city)
+  //   }
+  // });
+  for (let city of arr) {
     if (city.match(rg)) {
       newArr.push(city)
     }
-  });
+  }
   return newArr
 };
 
@@ -91,6 +96,8 @@ Do not use the vertical bar (pipe) in your pattern.
 
 const matchMonth = (input) => {
   // Solution code here...
+  let rg = /\b(Oct|October|october|oct)\b/g;
+  return rg.test(input)
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -199,7 +206,7 @@ describe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should match any of the acceptable inputs', () => {
     expect(matchMonth('Oct')).toBeTruthy();
     expect(matchMonth('oct')).toBeTruthy();
