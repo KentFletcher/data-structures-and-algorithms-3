@@ -86,6 +86,7 @@ For example, wordsToCharList('gregor') returns ['g','r','e','g','o','r'].
 
 const wordsToCharList = (arr) => {
   // Solution code here...
+  return arr.split('');
 };
 
 
@@ -133,7 +134,10 @@ const gruffaloCrumble = {
 const listFoods = (recipe) => {
   let result = [];
   // Solution code here...
-  return result;
+  gruffaloCrumble.ingredients.forEach(ingredient => {
+    result.push(ingredient.slice(ingredient.indexOf(' ', 7)).trim())
+  })
+  return result
 };
 
 /* ------------------------------------------------------------------------------------------------
