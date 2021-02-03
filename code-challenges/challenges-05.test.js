@@ -280,18 +280,17 @@ const extractVowels = (str) => {
   let arr = [];
   let splitStr = str.split('')
   let letterArr = []
+
   for (let i = 0; i < str.length; i++) {
     splitStr.forEach(letter => {
       if (letter === 'a' || letter === 'e' || letter === 'i' || letter === 'o' || letter === 'u') {
-        letterArr.push(letter)
-        i--
         splitStr.splice(splitStr.indexOf(letter), 1)
+        letterArr.push(letter)
       }
     })
   }
-  arr.push(splitStr.join(''))
-  arr.push(letterArr.sort().join(''))
-
+  arr[0] = splitStr.join('')
+  arr[1] = letterArr.sort().join('')
   return arr
 };
 
