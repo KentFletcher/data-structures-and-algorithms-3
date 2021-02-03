@@ -256,6 +256,13 @@ For example, removeVowels('gregor') returns 'grgr'.
 
 const removeVowels = (str) => {
   // Solution code here...
+  let splitStr = str.split('')
+  for (let letter of splitStr) {
+    if (letter === 'a' || letter === 'e' || letter === 'i' || letter === 'o' || letter === 'u') {
+      splitStr.splice(splitStr.indexOf(letter), 1)
+    }
+  }
+  return splitStr.join('')
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -376,7 +383,7 @@ describe('Testing challenge 11', () => {
   });
 });
 
-xdescribe('Testing challenge 12', () => {
+describe('Testing challenge 12', () => {
   test('It should return the string without vowels', () => {
     expect(removeVowels('gregor')).toStrictEqual('grgr');
     expect(removeVowels('gregor').length).toStrictEqual(4);
