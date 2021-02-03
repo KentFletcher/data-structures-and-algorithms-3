@@ -277,6 +277,22 @@ Similarly, extractVowels('The quick brown fox') returns ['Th qck brwn fx', 'eioo
 
 const extractVowels = (str) => {
   // Solution code here...
+  let arr = [];
+  let splitStr = str.split('')
+  let letterArr = []
+  for (let i = 0; i < str.length; i++) {
+    splitStr.forEach(letter => {
+      if (letter === 'a' || letter === 'e' || letter === 'i' || letter === 'o' || letter === 'u') {
+        letterArr.push(letter)
+        i--
+        splitStr.splice(splitStr.indexOf(letter), 1)
+      }
+    })
+  }
+  arr.push(splitStr.join(''))
+  arr.push(letterArr.sort().join(''))
+
+  return arr
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -392,7 +408,7 @@ describe('Testing challenge 12', () => {
   });
 });
 
-xdescribe('Testing challenge 13', () => {
+describe('Testing challenge 13', () => {
   test('It should return the string without vowels', () => {
     expect(extractVowels('gregor')).toStrictEqual(['grgr', 'eo']);
     expect(extractVowels('gregor').length).toStrictEqual(2);
