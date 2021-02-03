@@ -191,6 +191,12 @@ For example:
 
 const removeEvenValues = (arr) => {
   // Solution code here...
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 === 0) {
+      arr.splice(i, 1);
+      i--
+    }
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -210,6 +216,16 @@ removeLastCharacters('Gregor', 9) returns ''
 
 const removeLastCharacters = (str, numberOfCharacters) => {
   // Solution code here...
+  // if (numberOfCharacters <= 0) {
+  //   return str;
+  // } else if (str.length >= numberOfCharacters) {
+  //   return str.slice(0, -Math.abs(numberOfCharacters));
+  // } else {
+  //   return '';
+  // }
+  return numberOfCharacters < 0 ? str
+    : str.length > (numberOfCharacters - 1) ? str.slice(0, -Math.abs(numberOfCharacters))
+      : '';
 };
 
 
@@ -320,7 +336,7 @@ describe('Testing challenge 8', () => {
   });
 });
 
-xdescribe('Testing challenge 9', () => {
+describe('Testing challenge 9', () => {
   test('It should remove the even numbers from the array', () => {
     let list = [1, 2, 3, 4, 5, 6];
     removeEvenValues(list);
@@ -333,7 +349,7 @@ xdescribe('Testing challenge 9', () => {
   });
 });
 
-xdescribe('Testing challenge 10', () => {
+describe('Testing challenge 10', () => {
   test('It should shorten the string based on the first argument', () => {
     expect(removeLastCharacters('Gregor', 2)).toStrictEqual('Greg');
     expect(removeLastCharacters('Gregor', 2).length).toStrictEqual(4);
