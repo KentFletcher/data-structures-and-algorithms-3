@@ -148,13 +148,13 @@ hasChildrenValues(characters, 'Sansa') will return false
 const hasChildrenValues = (arr, character) => {
   // Solution code here...
   let hasChildren = false;
-  // return arr.forEach(ele => console.log(ele.name === character && ele.children.length > 0 ? true : false))
   arr.forEach(house => {
     if (Object.values(house).includes(character) && Object.values(house)[2].length > 0) {
       hasChildren = true;
     }
   })
   return hasChildren
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -167,6 +167,13 @@ The input and output of this function are the same as the input and output from 
 
 const hasChildrenEntries = (arr, character) => {
   // Solution code here...
+  let hasChildren = false;
+  arr.forEach(house => {
+    if (Object.entries(house)[0][1].includes(character) && Object.entries(house)[2][1].length > 0) {
+      hasChildren = true;
+    }
+  })
+  return hasChildren
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -283,7 +290,7 @@ describe('Testing challenge 6', () => {
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   test('It should return true for characters that have children', () => {
     expect(hasChildrenEntries(characters, 'Eddard')).toBeTruthy();
   });
