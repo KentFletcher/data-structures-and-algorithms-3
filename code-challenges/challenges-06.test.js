@@ -209,6 +209,16 @@ For example: [{ house: 'Stark', members: 7 }, { house: 'Arryn', members: 3 }, ..
 const houseSize = (arr) => {
   const sizes = [];
   // Solution code here...
+  let counter = 0
+  arr.forEach(house => {
+    counter += 1 //for the name of the head of the house
+    if (Object.values(house)[1] !== null) { //check if the head of the house has a spouse
+      counter += 1;
+    }
+    counter += Object.values(house)[2].length; //add the number of children the house has
+    sizes.push({ 'house': Object.values(house)[3], 'members': counter });//push object containing the info on the house
+    counter = 0;//reset the counter for the next house
+  })
   return sizes;
 };
 
@@ -316,7 +326,7 @@ describe('Testing challenge 8', () => {
   });
 });
 
-xdescribe('Testing challenge 9', () => {
+describe('Testing challenge 9', () => {
   test('It should return an object for each house containing the name and size', () => {
     expect(houseSize(characters)[1]).toStrictEqual({ house: 'Snow', members: 1 });
     expect(houseSize(characters).length).toStrictEqual(7);
