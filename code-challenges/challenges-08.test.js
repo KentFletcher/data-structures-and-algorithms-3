@@ -136,8 +136,9 @@ For example, getStatName(snorlaxData.stats, 50) will return ['special-defense', 
 
 const getStatName = (arr, minBaseStat) => {
   // Solution code here...
-  let newArr = getBaseStatGreaterThan(arr, minBaseStat);
-  return newArr.map(ele => ele.stat.name)
+  // let newArr = getBaseStatGreaterThan(arr, minBaseStat);
+  // return newArr.map(ele => ele.stat.name);
+  return getBaseStatGreaterThan(arr, minBaseStat).map(ele => ele.stat.name)
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -191,6 +192,7 @@ const characters = [
 
 const getCharactersWithoutChildren = (arr) => {
   // Solution code here...
+  return arr.filter(chara => chara.children === undefined)
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -203,6 +205,8 @@ For example: evenOddNumericValues(['Gregor', 2, 4, 1]) returns ['even', 'even', 
 
 const evenOddNumericValues = (arr) => {
   // Solution code here...
+  let numArr = arr.filter(ele => typeof ele === 'number');
+  return numArr.map(ele => (ele % 2) ? 'odd' : 'even')
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -319,14 +323,14 @@ describe('Testing challenge 8', () => {
   });
 });
 
-xdescribe('Testing challenge 9', () => {
+describe('Testing challenge 9', () => {
   test('It should return an array containing characters who do not have children', () => {
     expect(getCharactersWithoutChildren(characters)).toStrictEqual([{ name: 'Sansa', spouse: 'Tyrion', house: 'Stark' }, { name: 'Jon', spouse: null, house: 'Snow' }]);
     expect(getCharactersWithoutChildren(characters).length).toStrictEqual(2);
   });
 });
 
-xdescribe('Testing challenge 10', () => {
+describe('Testing challenge 10', () => {
   test('It should remove non-integers and return "even" or "odd', () => {
     expect(evenOddNumericValues(['Gregor', 2, 4, 1])).toStrictEqual(['even', 'even', 'odd']);
     expect(evenOddNumericValues(['Gregor', 2, 4, 1]).length).toStrictEqual(3);
