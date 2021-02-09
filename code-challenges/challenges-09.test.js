@@ -144,8 +144,7 @@ Note: You must use reduce for this challenge. You may not use the built-in .reve
 
 const reversedString = (str) => {
   // Solution code here...
-  let splitStr = str.split('')
-  return splitStr.reduce((acc, curr) => {
+  return str.split('').reduce((acc, curr) => {
     acc.unshift(curr);
     return acc;
   }, []).join('')
@@ -202,6 +201,12 @@ const characters = [
 
 const countNumberOfChildren = (arr) => {
   // Solution code here...
+  return arr.reduce((numKids, house) => {
+    if (house.children != undefined) {
+      numKids += house.children.length;
+    }
+    return numKids
+  }, 0)
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -346,7 +351,7 @@ describe('Testing challenge 6', () => {
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   test('It should return the total number of children', () => {
     expect(countNumberOfChildren(characters)).toStrictEqual(14);
   });
