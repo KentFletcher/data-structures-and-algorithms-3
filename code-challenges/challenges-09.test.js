@@ -144,6 +144,11 @@ Note: You must use reduce for this challenge. You may not use the built-in .reve
 
 const reversedString = (str) => {
   // Solution code here...
+  let splitStr = str.split('')
+  return splitStr.reduce((acc, curr) => {
+    acc.unshift(curr);
+    return acc;
+  }, []).join('')
 };
 
 /* ------------------------------------------------------------------------------------------------
