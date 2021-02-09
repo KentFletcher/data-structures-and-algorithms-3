@@ -313,6 +313,13 @@ Write a function named extractChildren that, given the array of characters from 
 
 const extractChildren = (arr) => {
   // Solution code here...
+  let aNames = arr.filter(house => house.name.includes('a'));
+  return aNames.reduce((acc, curr) => {
+    if (curr.children != undefined) {
+      curr.children.forEach(kid => acc.push(kid))
+    }
+    return acc
+  }, [])
 };
 
 /* ------------------------------------------------------------------------------------------------
