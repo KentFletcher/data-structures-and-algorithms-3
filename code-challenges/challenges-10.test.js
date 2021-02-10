@@ -168,8 +168,7 @@ let findShortest = (data) => {
     }
     return acc
   }, short)
-  let shorty = data.filter(char => parseInt(char.height) === shortest);
-  return shorty[0].name;
+  return data.filter(char => parseInt(char.height) === shortest).map(short => short.name)[0];
 };
 
 /* ------------------------------------------------------------------------------------------------
