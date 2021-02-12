@@ -77,6 +77,8 @@ Note: if you ever need to validate an email using a regex in practice, the Inter
 
 const validateEmail = (email) => {
   // Solution code here...
+  let rg = /^(\w)+.?(\w)+?(@)(\w)+(.)((com)|(net)|(org))$/g;
+  return rg.test(email)
 };
 
 /* ------------------------------------------------------------------------------------------------
