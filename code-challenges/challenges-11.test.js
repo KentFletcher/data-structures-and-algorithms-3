@@ -55,6 +55,8 @@ If it does, return true. If not, return false.
 
 const hasNumber = (string) => {
   // Solution code here...
+  let rg = /\D\d/g;
+  return rg.test(string);
 };
 
 /* ------------------------------------------------------------------------------------------------
