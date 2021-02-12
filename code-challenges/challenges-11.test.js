@@ -104,6 +104,8 @@ Return either true or false.
 
 const validatePhoneNumber = (phoneNumber) => {
   // Solution code here...
+  let rg = /^(\((\d{3})\)[\s]?|(\d{3})[\s-]?)(\d{3})[\s-]?(\d{4})$/;
+  return rg.test(phoneNumber);
 };
 
 /* ------------------------------------------------------------------------------------------------
