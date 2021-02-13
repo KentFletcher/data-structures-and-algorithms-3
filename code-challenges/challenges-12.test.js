@@ -12,6 +12,7 @@ const maxInArray = (arr) => {
   // Solution code here...
   let highNum = 0;
   arr.reduce((acc, curr) => {
+    // console.log(curr, acc, 'before')
     if (curr > acc) {
       highNum = curr
       return highNum
@@ -37,6 +38,17 @@ return: 23
 ------------------------------------------------------------------------------------------------ */
 const findMax = (matrix) => {
   // Solution code here...
+  let highNum = 0;
+  for (let arr of matrix) {
+    arr.reduce((acc, curr) => {
+      if (curr > acc) {
+        highNum = curr;
+        return highNum
+      }
+      return acc
+    }, highNum)
+  }
+  return highNum
 };
 
 /* ------------------------------------------------------------------------------------------------
