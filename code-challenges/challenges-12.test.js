@@ -67,6 +67,14 @@ return: 35
 ------------------------------------------------------------------------------------------------ */
 const totalSum = (matrix) => {
   // Solution code here...
+  let sum = 0;
+  for (let arr of matrix) {
+    arr.reduce((acc, curr) => {
+      sum += curr;
+      return acc
+    }, sum)
+  }
+  return sum
 };
 
 
