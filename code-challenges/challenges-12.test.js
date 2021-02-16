@@ -232,9 +232,14 @@ const weeklyTemperatures = [
 
 const averageDailyTemperature = (weather) => {
   // Solution code here...
-  const weeklyTotal = weather.reduce((acc, day) => {
-    console.log(day)
+  let weeklyTotal = weather.reduce((total, week) => {
+    return week.reduce((acc, day) => {
+      acc.totalSum += day;
+      acc.numDays++;
+      return acc
+    }, total)
   }, { totalSum: 0, numDays: 0 })
+  return weeklyTotal.totalSum / weeklyTotal.numDays;
 };
 
 /* ------------------------------------------------------------------------------------------------
