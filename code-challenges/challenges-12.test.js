@@ -194,9 +194,7 @@ The top row of the board is considered row zero and row numbers increase as they
 const battleship = (board, row, col) => {
   //  Solution code here...
   for (let i = 0; i < board.length; i++) {
-    // console.log(i, board[i])
     for (let j = 0; j < board[i].length; j++) {
-      // console.log(j, i, board[i][j])
       return board[row][col] === board[i][j] && board[i][j] === '#' ? 'hit' : 'miss';
     }
   }
@@ -212,7 +210,9 @@ For example, the following input returns a product of 720: [[1,2], [3,4], [5,6]]
 
 const calculateProduct = (numbers) => {
   // Solution code here...
+  return numbers.reduce((total, arr) => total * arr.reduce((acc, curr) => curr * acc, 1), 1)
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 9 - Stretch Goal
@@ -356,7 +356,7 @@ describe('Testing challenge 7', () => {
   });
 });
 
-xdescribe('Testing challenge 8', () => {
+describe('Testing challenge 8', () => {
   test('It should multiply all the numbers together', () => {
     expect(calculateProduct([[1, 2], [3, 4], [5, 6]])).toStrictEqual(720);
   });
