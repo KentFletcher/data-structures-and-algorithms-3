@@ -59,6 +59,10 @@ For example, (123) 456-7890 returns 1234567890
 
 const standardizePhoneNumbers = (arr) => {
   // Solution code here...
+  let rg = /[0-9]/g;
+  let resultArr = [];
+  arr.forEach(ele => resultArr.push(ele.match(rg).join('')))
+  return resultArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
