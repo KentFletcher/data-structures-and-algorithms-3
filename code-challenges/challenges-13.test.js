@@ -182,15 +182,24 @@ const sortByDay = (arr) => {
     [],
     []
   ]
-  arr.map(ele => {
-    for (let day of daysOfWeek) {
-      if (ele.includes(day)) {
-        // console.log(daysOfWeek.indexOf(day))
-        resultsArr[daysOfWeek.indexOf(day)].push(ele)
-      }
-    }
+  arr.forEach(day => {
 
-  })
+    if ((/monday/gi).test(day)) { resultsArr[0].push(day); }
+    if ((/tuesday/gi).test(day)) { resultsArr[1].push(day); }
+    if ((/wednesday/gi).test(day)) { resultsArr[2].push(day); }
+    if ((/thursday/gi).test(day)) { resultsArr[3].push(day); }
+    if ((/friday/gi).test(day)) { resultsArr[4].push(day); }
+    if ((/saturday/gi).test(day)) { resultsArr[5].push(day); }
+    if ((/sunday/gi).test(day)) { resultsArr[6].push(day); }
+
+  });
+  // arr.map(ele => {
+  //   for (let day of daysOfWeek) {
+  //     if (ele.includes(day)) {
+  //       resultsArr[daysOfWeek.indexOf(day)].push(ele)
+  //     }
+  //   }
+  // })
   return resultsArr;
 };
 
