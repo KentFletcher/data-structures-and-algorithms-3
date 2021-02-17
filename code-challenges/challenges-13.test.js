@@ -77,13 +77,18 @@ For example, 'abcdefg' returns 'bdf'
 
 const onlyOddChars = (str) => {
   // Solution code here...
-  let arr = [];
-  for (let i = 1; i < str.length; i++) {
-    if (i % 2 != 0) {
-      arr.push(str[i])
-    }
+  let result = '';
+  for (let i = 1; i < str.length; i += 2) {
+    result += str.substring(i, i + 1)
   }
-  return arr.join('')
+  return result;
+  // let arr = [];
+  // for (let i = 1; i < str.length; i++) {
+  //   if (i % 2 != 0) {
+  //     arr.push(str[i])
+  //   }
+  // }
+  // return arr.join('')
 };
 
 /* ------------------------------------------------------------------------------------------------
