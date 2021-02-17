@@ -27,6 +27,13 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['t', 
 
 const firstLetters = (arr) => {
   // Solution code here...
+  let resultArr = [];
+  arr.forEach(str => {
+    if (typeof (str[0]) === 'string') {
+      resultArr.push(str[0])
+    }
+  })
+  return resultArr
 };
 
 /* ------------------------------------------------------------------------------------------------
