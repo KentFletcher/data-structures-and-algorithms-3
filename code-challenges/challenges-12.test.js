@@ -278,14 +278,6 @@ const lowestWeeklyAverage = (weather) => {
   }
   return lowWeeklyAvg;
 };
-// let weeklyTotal = weather.reduce((total, week) => {
-//   return week.reduce((acc, day) => {
-//     acc.totalSum += day;
-//     acc.numDays++;
-//     return acc
-//   }, total)
-// }, { totalSum: 0, numDays: 0 })
-// console.log(weeklyTotal)
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 11 - Stretch Goal
