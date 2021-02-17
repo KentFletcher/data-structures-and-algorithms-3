@@ -300,9 +300,7 @@ const excel = (str) => {
     arr.push(str.split(','))
   }
   arr.forEach(arr => {
-    // console.log(arr)
     result.push(arr.reduce((acc, curr) => {
-      // console.log(acc, parseInt(curr))
       acc += parseInt(curr);
       return acc
     }, 0))
