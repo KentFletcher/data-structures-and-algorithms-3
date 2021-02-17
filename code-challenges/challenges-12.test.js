@@ -294,19 +294,22 @@ For example, excel('1,1,1\n4,4,4\n9,9,9') returns [3, 12, 27].
 
 const excel = (str) => {
   // Solution code here...
-  let splitStr = str.split('\n');
-  let arr = [];
-  let result = []
-  for (let str of splitStr) {
-    arr.push(str.split(','))
-  }
-  arr.forEach(arr => {
-    result.push(arr.reduce((acc, curr) => {
-      acc += parseInt(curr);
-      return acc
-    }, 0))
-  })
-  return result;
+  // let splitStr = str.split('\n');
+  // let arr = [];
+  // let result = []
+  // for (let str of splitStr) {
+  //   arr.push(str.split(','))
+  // }
+  // arr.forEach(arr => {
+  //   result.push(arr.reduce((acc, curr) => {
+  //     acc += parseInt(curr);
+  //     return acc
+  //   }, 0))
+  // })
+  // return result;
+  return str.split('\n')
+    .map(val => val.split(',')
+      .reduce((acc, curr) => acc + parseInt(curr), 0))
 };
 
 /* ------------------------------------------------------------------------------------------------
