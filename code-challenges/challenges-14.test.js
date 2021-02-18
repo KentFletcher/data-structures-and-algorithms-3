@@ -100,6 +100,14 @@ let starWarsData = [{
 
 let biggerThanLuke = (arr) => {
   // Solution code here...
+  let luke = arr.filter(chara => chara.name === 'Luke Skywalker');
+  let moreMass = arr.filter(char => parseInt(char.mass) > parseInt(luke[0].mass));
+  return moreMass.reduce((acc, curr, idx) => {
+    moreMass.indexOf(curr) === moreMass.length - 1 ? acc += curr.name
+      : moreMass.indexOf(curr) === 0 ? acc += `${curr.name} - `
+        : acc += ` ${curr.name} - `
+    return acc
+  }, '')
 };
 
 /* ------------------------------------------------------------------------------------------------
