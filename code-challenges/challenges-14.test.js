@@ -24,7 +24,8 @@ For example, ['apple', 'banana', 'MacGyver'] returns ['Apple', 'Banana', 'MacGyv
 ------------------------------------------------------------------------------------------------ */
 
 const toTitleCase = (arr) => {
-  return arr.map(str => str.split('')[0].toUpperCase() + str.substring(1))
+  // return arr.map(str => str.split('')[0].toUpperCase() + str.substring(1))
+  return arr.map(str => str.replace(str.charAt(0), str.charAt(0).toUpperCase()))
 };
 
 /* ------------------------------------------------------------------------------------------------
