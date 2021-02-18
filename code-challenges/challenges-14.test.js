@@ -126,7 +126,7 @@ This data could be sorted by name or price.
 
 const sortBy = (property, arr) => {
   // Solution code here...
-  return typeof arr.[0][property] === 'number' ? arr.sort((a, b) => a[property] - b[property])
+  return typeof arr[0][property] === 'number' ? arr.sort((a, b) => a[property] - b[property])
     : arr.sort((a, b) => a.name < b.name ? -1 : a.name > b.name ? 1 : 0)
 };
 
@@ -145,7 +145,7 @@ https:/missingslash.org returns false because the URL is malformed
 const isSecure = (url) => {
   // Solution code here...
   let rg = /^(https:\/\/)/;
-  return rg.test(url)
+  return rg.test(url);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -168,7 +168,32 @@ Here is a sample board:
 ------------------------------------------------------------------------------------------------ */
 
 const detectTicTacToeWin = (board) => {
-  // Solution code here...
+  if (board[0][0] === 'X' && board[0][1] === 'X' && board[0][2] === 'X' ||
+    board[0][0] === 'O' && board[0][1] === 'O' && board[0][2] === 'O') {
+    return true
+  } else if (board[1][0] === 'X' && board[1][1] === 'X' && board[1][2] === 'X' ||
+    board[1][0] === 'O' && board[1][1] === 'O' && board[1][2] === 'O') {
+    return true
+  } else if (board[2][0] === 'X' && board[2][1] === 'X' && board[2][2] === 'X' ||
+    board[2][0] === 'O' && board[2][1] === 'O' && board[2][2] === 'O') {
+    return true
+  } else if (board[0][0] === 'X' && board[1][1] === 'X' && board[2][2] === 'X' ||
+    board[0][0] === 'O' && board[1][1] === 'O' && board[2][2] === 'O') {
+    return true
+  } else if (board[2][2] === 'X' && board[1][1] === 'X' && board[2][0] === 'X' ||
+    board[2][2] === 'O' && board[1][1] === 'O' && board[2][0] === 'O') {
+    return true
+  } else if (board[0][0] === 'X' && board[1][0] === 'X' && board[2][0] === 'X' ||
+    board[0][0] === 'O' && board[1][0] === 'O' && board[2][0] === 'O') {
+    return true
+  } else if (board[0][1] === 'X' && board[1][1] === 'X' && board[2][1] === 'X' ||
+    board[0][1] === 'O' && board[1][1] === 'O' && board[2][1] === 'O') {
+    return true
+  } else if (board[0][2] === 'X' && board[1][2] === 'X' && board[2][2] === 'X' ||
+    board[0][2] === 'O' && board[1][2] === 'O' && board[2][2] === 'O') {
+    return true
+  }
+  else return false;
 };
 
 /* ------------------------------------------------------------------------------------------------
