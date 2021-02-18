@@ -100,7 +100,7 @@ let starWarsData = [{
 
 let biggerThanLuke = (arr) => {
   // Solution code here...
-  let luke = arr.filter(chara => chara.name === 'Luke Skywalker');
+  let luke = arr.filter(char => char.name === 'Luke Skywalker');
   let moreMass = arr.filter(char => parseInt(char.mass) > parseInt(luke[0].mass));
   return moreMass.reduce((acc, curr, idx) => {
     moreMass.indexOf(curr) === moreMass.length - 1 ? acc += curr.name
@@ -144,6 +144,8 @@ https:/missingslash.org returns false because the URL is malformed
 ------------------------------------------------------------------------------------------------ */
 const isSecure = (url) => {
   // Solution code here...
+  let rg = /^(https:\/\/)/;
+  return rg.test(url)
 };
 
 /* ------------------------------------------------------------------------------------------------
